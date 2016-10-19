@@ -31,7 +31,7 @@ public class CarrosTabFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_carros_tab, container, false);
         ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPager);
         viewPager.setOffscreenPageLimit(2);
-        viewPager.setAdapter(new TabAdapter(getActivity(),getChildFragmentManager()));
+        viewPager.setAdapter(new TabAdapter(getContext(),getChildFragmentManager()));
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabLayout);
         tabLayout.setupWithViewPager(viewPager);
         int cor = ContextCompat.getColor(getContext(),R.color.white);

@@ -1,5 +1,6 @@
 package br.com.livroandroid.carrosfinal.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -41,7 +42,6 @@ public class Base_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        setuptoolbar();
         fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,11 +67,17 @@ public class Base_Activity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
                     if (id == R.id.frag1) {
-                    replaceFragment(CarrosFragment.newInstance(R.string.classicos));
+                        Intent intent = new Intent(getBaseContext(),CarrosActivity.class);
+                        intent.putExtra("tipo",R.string.classicos);
+                        startActivity(intent);
                     } else if (id == R.id.frag2) {
-                        replaceFragment(CarrosFragment.newInstance(R.string.esportivos));
+                        Intent intent = new Intent(getBaseContext(),CarrosActivity.class);
+                        intent.putExtra("tipo",R.string.esportivos);
+                        startActivity(intent);
                     } else if (id == R.id.frag3) {
-                        replaceFragment(CarrosFragment.newInstance(R.string.luxo));
+                        Intent intent = new Intent(getBaseContext(),CarrosActivity.class);
+                        intent.putExtra("tipo",R.string.luxo);
+                        startActivity(intent);
                     } else if (id == R.id.frag4) {
                         replaceFragment(new SiteLivroFragment());
                     }
@@ -112,6 +118,7 @@ public class Base_Activity extends AppCompatActivity {
     }
 
     protected void replaceFragment(Fragment frag) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,frag).commit();
+
+        this.getSupportFragmentManager().beginTransaction().add(R.id.container,frag).commit();
     }
 }

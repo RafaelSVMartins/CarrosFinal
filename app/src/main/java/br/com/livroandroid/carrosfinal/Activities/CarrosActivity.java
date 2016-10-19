@@ -7,25 +7,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import br.com.livroandroid.carrosfinal.Domain.Carro;
-import br.com.livroandroid.carrosfinal.Fragments.CarroFragment;
+import br.com.livroandroid.carrosfinal.Fragments.CarrosFragment;
 import br.com.livroandroid.carrosfinal.R;
 
-public class CarroActivity extends Base_Activity {
+public class CarrosActivity extends Base_Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_carro);
+        setContentView(R.layout.activity_carros);
         setuptoolbar();
-        Carro c = (Carro) getIntent().getParcelableExtra("carro");
-        getSupportActionBar().setTitle(c.nome);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle(getString(getIntent().getIntExtra("tipo",0)));
         if (savedInstanceState == null) {
-            CarroFragment frag = new CarroFragment();
+            CarrosFragment frag = new CarrosFragment();
             frag.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.container2,frag).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.container3,frag).commit();
         }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

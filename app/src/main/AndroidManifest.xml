@@ -26,13 +26,20 @@
         <activity
             android:name=".Activities.CarroActivity"
             android:label="@string/title_activity_carro"
+            android:parentActivityName=".Activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Activities.MainActivity"></meta-data>
+        </activity>
+        <activity
+            android:name=".Activities.CarrosActivity"
+            android:label="@string/title_activity_carros"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".Activities.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity"
-                >
-            </meta-data>
+                android:value=".Activities.MainActivity"></meta-data>
         </activity>
     </application>
 

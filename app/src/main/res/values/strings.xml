@@ -29,4 +29,5 @@ Versao %s<br><br>
     <string name="SiteLivro">Site Livro</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_carro">CarroActivity</string>
+    <string name="title_activity_carros">CarrosActivity</string>
 </resources>

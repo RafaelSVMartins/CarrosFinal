@@ -2,17 +2,20 @@ package br.com.livroandroid.carrosfinal.Fragments;
 
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.List;
 
 import br.com.livroandroid.carrosfinal.Activities.CarroActivity;
@@ -69,8 +72,29 @@ public class CarrosFragment extends Fragment {
     }
 
     private void taskcarros() {
-        this.carros = CarroService.getCarros(getContext(),tipo);
-        recyclerView.setAdapter(new CarroAdapter(carros, getContext(),onClickCarro()));
+        new GetCarrosTask().execute();
+    }
+
+    private class GetCarrosTask extends AsyncTask<Void,Void,List<Carro>> {
+
+        @Override
+        protected List<Carro> doInBackground(Void... params) {
+            try {
+                return CarroService.getCarros(getContext(),tipo);
+            } catch (IOException e) {
+                Log.e(e.getMessage(), String.valueOf(e));
+                return null;
+            }
+
+        }
+
+        @Override
+        protected void onPostExecute(List<Carro> carros) {
+            if (carros != null) {
+               CarrosFragment.this.carros = carros;
+                recyclerView.setAdapter(new CarroAdapter(carros,getContext(),onClickCarro()));
+            }
+        }
     }
 
     private CarroAdapter.CarroOnClickListener onClickCarro() {
