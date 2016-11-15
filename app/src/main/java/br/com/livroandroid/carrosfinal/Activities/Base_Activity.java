@@ -20,7 +20,7 @@ import br.com.livroandroid.carrosfinal.Fragments.CarrosFragment;
 import br.com.livroandroid.carrosfinal.Fragments.CarrosTabFragment;
 import br.com.livroandroid.carrosfinal.Fragments.SiteLivroFragment;
 import br.com.livroandroid.carrosfinal.R;
-
+import livroandroid.lib.utils.AndroidUtils;
 
 
 public class Base_Activity extends AppCompatActivity {
@@ -80,6 +80,13 @@ public class Base_Activity extends AppCompatActivity {
                         startActivity(intent);
                     } else if (id == R.id.frag4) {
                         replaceFragment(new SiteLivroFragment());
+                    } else if (id == R.id.nav_item_settings) {
+                        /*if (AndroidUtils.isAndroid3Honeycomb()) {
+                            startActivity(new Intent(getBaseContext(),ConfiguracoesV11Activity.class));
+                        } else {
+                            startActivity(new Intent(getBaseContext(),ConfiguracoesActivity.class));
+                        }*/
+                        startActivity(new Intent(getBaseContext(),ConfiguracoesActivity.class));
                     }
                 return true;
             }
@@ -119,6 +126,6 @@ public class Base_Activity extends AppCompatActivity {
 
     protected void replaceFragment(Fragment frag) {
 
-        this.getSupportFragmentManager().beginTransaction().add(R.id.container,frag).commit();
+        this.getSupportFragmentManager().beginTransaction().add(R.id.content_base_,frag).commit();
     }
 }

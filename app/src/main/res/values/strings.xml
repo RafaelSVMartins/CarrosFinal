@@ -30,4 +30,13 @@ Versao %s<br><br>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_carro">CarroActivity</string>
     <string name="title_activity_carros">CarrosActivity</string>
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="msg_alerta_permisssao">Para utilizar esse aplicativo, você precisa das permissões.</string>
+    <string name="video">video</string>
+    <string name="mapa">mapa</string>
+    <string name="share">share</string>
+    <string name="editar" />
+    <string name="excluir">excluir</string>
+    <string name="nome">Nome:</string>
+    <string name="atualizar">Atualizar</string>
 </resources>

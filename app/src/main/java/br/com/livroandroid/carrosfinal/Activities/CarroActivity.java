@@ -6,13 +6,16 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
 
 import br.com.livroandroid.carrosfinal.Domain.Carro;
 import br.com.livroandroid.carrosfinal.Fragments.CarroFragment;
 import br.com.livroandroid.carrosfinal.R;
 
 public class CarroActivity extends Base_Activity {
-
+    private ImageView appBarImg;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,7 +24,8 @@ public class CarroActivity extends Base_Activity {
         Carro c = (Carro) getIntent().getParcelableExtra("carro");
         getSupportActionBar().setTitle(c.nome);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        /*appBarImg = (ImageView) findViewById(R.id.appBarImg);
+        Picasso.with(getBaseContext()).load(c.urlFoto).into(appBarImg);*/
         if (savedInstanceState == null) {
             CarroFragment frag = new CarroFragment();
             frag.setArguments(getIntent().getExtras());

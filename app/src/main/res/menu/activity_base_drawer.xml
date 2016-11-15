@@ -20,6 +20,16 @@
             android:title="frag4" />
     </group>
 
+    <item android:title="Configurações">
+        <menu>
+            <item
+                android:id="@+id/nav_item_settings"
+                android:icon="@drawable/ic_drawer_carro"
+                android:title="Configurações"
+                />
+        </menu>
+    </item>
+
     <item android:title="Communicate">
         <menu>
             <item
